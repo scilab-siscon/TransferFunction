@@ -1,6 +1,7 @@
+//teste
+
 clc
 clear
-
 
 qtd = input("Digite a Quantidade de elementos     :")
 
