@@ -4,7 +4,8 @@
 //Matricula:20171102722
 //Data da ultima modificação:17/07/2020
 //Nome do script:Calcula função de transferencia para 
-//   sistemas em série, em paralelo e em feedback
+//   sistemas em série, em paralelo e em feedback além
+//   de calcular a estabilidade do circuito
 
 //Bibliografia:
 //help.scilab.org/
