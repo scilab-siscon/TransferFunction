@@ -2,10 +2,9 @@
 //Desenvolvido por:Gabryel Gouveia de Jesus Souza
 //Idealizado:Gabryel Gouveia de Jesus Souza
 //Matricula:20171102722
-//Data da ultima modificação:17/07/2020
+//Data da ultima modificação:02/09/2020
 //Nome do script:Calcula função de transferencia para 
-//   sistemas em série, em paralelo e em feedback além
-//   de calcular a estabilidade do circuito
+//   sistemas em série, em paralelo e em feedback
 
 //Bibliografia:
 //help.scilab.org/
@@ -124,15 +123,29 @@ if(ulocus == 'S')then
 
 if(urespo =='N') then
  kmax=input('informe o maximo ganho');
-  
+ 
+ clf()
  evans(equ,kmax);
  
-  //plotagem do grafico 
-  sgrid('purple')
+  //plotagem dos graficos
+ // sgrid('purple')
+  xgrid();
  [Ki,s]=kpure(equ) // Gains that give pure imaginary closed loop poles
-  plot([real(s) real(s)],[imag(s) -imag(s)],'*r')
+  plot([real(s) real(s)],[imag(s) -imag(s)],'*r') 
 
   [Kr,s]=krac2(equ)
+  
+  scf()
+  evans(equ,kmax);
+  xgrid();
+  sgrid('purple');
+  graf=gca();
+  graf.title.text="Linhas com zeta Constantes e Círculos com omega Constantes";
+  [Ki,s]=kpure(equ) // Gains that give pure imaginary closed loop poles
+  plot([real(s) real(s)],[imag(s) -imag(s)],equ) //editado por gabryel gouveia 02/09/2020
+
+  [Kr,s]=krac2(equ)
+  
  
 end
 
@@ -146,6 +159,7 @@ retorno=input("Deseja fazer outra operação(S/N)?","s")
 ret=convstr(retorno,"u");
 
  if (ret == 'S')then
+
   volta=1
  end
  
